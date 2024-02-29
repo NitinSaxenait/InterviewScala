@@ -6,12 +6,26 @@ val answersFunc = new Questions
 //  println("The value given Palindrome - "+answersFunc.isItPalindrome("SAMAR"))
 //  answersFunc.countDuplicateChar("AABBCCGNKFNDK")
 //  answersFunc.fetchUniqueCharArray(Array('A','B','C','C','D','E','E'))
-////  answersFunc.printFibonacciSeries(7)
+//  answersFunc.printFibonacciSeries(3)
 //  answersFunc.sortintegerArray(Array(6,5,3))
-  answersFunc.sortMyintegerArray(Array(7,3,2,1,3,5))
+//  answersFunc.sortMyintegerArray(Array(7,3,2,1,3,5))
+  println(answersFunc.fibonacciSeries(3))
 }
 
 class Questions{
+
+ // 0 -- 1 -- 0+1(1)--- 1+1
+  def fibonacciSeries(value: Int): (String, Int) = {
+    val fiboArray = new Array[Int](value+1)
+        fiboArray(0)= 0
+        fiboArray(1) = 1
+    for(count <- 2 to value){
+      fiboArray(count) = fiboArray(count-1) + fiboArray(count-2)
+    }
+    (fiboArray.mkString(" "), fiboArray.last)
+  }
+
+
   // A -A -B - B C- (H)C  -A(T)
   def countDuplicateChar(value: String) ={
     val valueCollector: Array[Char] = new Array[Char](value.length)
@@ -46,11 +60,11 @@ class Questions{
 
   }
   // List(5(H),7,3,5,2,6,7) -> (ascending)
-  def sortMyintegerArray(integerArray: Array[Int])={
+  def sortMyintegerArray(integerArray: Array[Int])= {
     var temp = 0
-    for(head <- integerArray.indices){
-      for(tail <- (head + 1) until (integerArray.length)){
-        if(integerArray(head) > integerArray(tail)){
+    for (head <- integerArray.indices) {
+      for (tail <- (head + 1) until (integerArray.length)) {
+        if (integerArray(head) > integerArray(tail)) {
           temp = integerArray(tail)
           integerArray(tail) = integerArray(head)
           integerArray(head) = temp
@@ -59,22 +73,7 @@ class Questions{
     }
     // .distinct in array is used to remove duplicated values from an array...
     integerArray.distinct.foreach(print)
-
-
-
-
   }
-
-
-
-
-
-
-
-
-
-
-
 
   // hi ram i am there.
   def makeFirstWordCapital(value: String)  = {
@@ -104,7 +103,7 @@ class Questions{
     }
   }
 
-  def printFibonacciSeries(number: Int)= {
+  def   printFibonacciSeries(number: Int)= {
     val fibArray = new Array[Int](number+1)
      fibArray(0) = 0
      fibArray(1) = 1
@@ -113,6 +112,7 @@ class Questions{
     }
     println(fibArray.last)
 }
+
 }
 
 

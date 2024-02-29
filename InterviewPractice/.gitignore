@@ -7,3 +7,5 @@ book/
 target/
 /.idea
 /.bsp
+.bsp/
+.idea/
